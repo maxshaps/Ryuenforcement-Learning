@@ -6,7 +6,7 @@
 2. Clone the repo with `git clone https://github.com/maxshaps/Ryuenforcement-Learning.git`
 3. Go to the directory in which it was cloned
 4. Type `pip install -r requirements.txt`
-5. Type `python -m retro.import roms`
+5. Type `python -m retro.import ryuenforcement\common`
 
 ## Running the random agent
-Type `python random_agent.py`
+Type `python ryuenforcement\random_agent.py`
