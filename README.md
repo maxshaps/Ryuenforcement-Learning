@@ -2,4 +2,4 @@
 
 ## Importing games
 
-Type python -m retro.import roms
+Type `python -m retro.import roms`
