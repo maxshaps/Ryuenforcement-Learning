@@ -13,6 +13,9 @@ MOVE = {'NONE': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         'HARD_PUNCH': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]  # Z
         }
 
+ACITON_TO_MOVE = ['NONE', 'UP', 'DOWN', 'LEFT', 'RIGHT', 'LIGHT_KICK', 'MEDIUM_KICK', 'HARD_KICK', 'LIGHT_PUNCH',
+                  'MEDIUM_PUNCH', 'HARD_PUNCH']
+
 # Move list from
 # https://www.ign.com/faqs/2006/playtv-legends-sega-genesis-street-fighter-ii-special-champion-edition-move-list-522302
 
