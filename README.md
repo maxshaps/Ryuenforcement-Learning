@@ -10,3 +10,6 @@
 
 ## Running the random agent
 Type `python ryuenforcement\random_agent.py`
+
+## Using GPU locally
+If you are looking to run with a GPU locally, please follow the setup here https://pytorch.org/get-started/locally/
