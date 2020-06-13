@@ -63,11 +63,16 @@ def main():
     obs = env.reset()
     screen = get_screen(env)
     count = 0
+    start_action = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     while True:
-        print(count)
-        action = mi2aa(torch.argmax(policy_net(screen)).item())
+        if count % 2:
+            action = [0,0,0,0,0,0,0,0,0,0,0,0]
+        else:
+            action = mi2aa(torch.argmax(policy_net(screen)).item())
+            print(policy_net(screen))
         obs, rew, done, info = env.step(action)
-        get_screen(env)
+        screen = get_screen(env)
+        env.render()
         count +=1
         if done:
             obs = env.reset()
