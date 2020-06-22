@@ -12,7 +12,7 @@ resize = T.Compose([T.ToPILImage(),
                     T.ToTensor()])
 
 
-def get_screen(env: RetroEnv, device: torch.device) -> torch.Tensor:
+def get_screen(device: torch.device, env: RetroEnv) -> torch.Tensor:
     screen = env.render(mode='rgb_array').transpose((2, 0, 1))
     # Convert to float, rescale, convert to torch tensor
     screen = np.ascontiguousarray(screen, dtype=np.float32) / 255
@@ -21,9 +21,9 @@ def get_screen(env: RetroEnv, device: torch.device) -> torch.Tensor:
     return resize(screen).unsqueeze(0).to(device)
 
 
-def show_example_screen(env: RetroEnv, device: torch.device) -> None:
+def show_example_screen(device: torch.device, env: RetroEnv) -> None:
     env.reset()
     plt.figure()
-    plt.imshow(get_screen(env, device).cpu().squeeze(0).permute(1, 2, 0).numpy(), interpolation='none')
+    plt.imshow(get_screen(device, env).cpu().squeeze(0).permute(1, 2, 0).numpy(), interpolation='none')
     plt.title('Example extracted screen')
     plt.show()
