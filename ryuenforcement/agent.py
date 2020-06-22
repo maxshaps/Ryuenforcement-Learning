@@ -60,8 +60,8 @@ class DQN(nn.Module):
         return self.head(x.view(x.size(0), -1))
 
 
-def select_action(state, policy_net: DQN, device: torch.device, n_actions: int, eps_start: float, eps_end: float,
-                  eps_decay: float, steps_done: int = 0) -> torch.tensor:
+def select_action(state: torch.Tensor, policy_net: DQN, device: torch.device, n_actions: int, eps_start: float,
+                  eps_end: float, eps_decay: float, steps_done: int = 0) -> torch.tensor:
     sample = random.random()
     eps_threshold = eps_end + (eps_start - eps_end) * \
         math.exp(-1. * steps_done / eps_decay)
