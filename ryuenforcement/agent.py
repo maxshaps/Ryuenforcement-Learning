@@ -1,9 +1,11 @@
 # standard library imports
+import os
 import random
 import math
+from datetime import datetime
 from collections import namedtuple
 from itertools import count
-from typing import Tuple, List
+from typing import Tuple, List, Union
 # related third party imports
 import torch
 from torch import nn
@@ -209,3 +211,13 @@ def train_agent(device: torch.device, env: RetroEnv, policy_net: DQN, target_net
         if i_episode % target_update == 0:
             target_net.load_state_dict(policy_net.state_dict())
     return episode_durations, episode_rewards
+
+
+def save_model(the_model: DQN, path: Union[None, str] = None) -> None:
+    if path is None:
+        current_path = os.path.dirname(os.path.abspath(__file__))
+        date_str = datetime.date(datetime.now())
+        path = os.path.join(current_path, 'saved_files', f'hadouken_{date_str}.pt')
+        print(path)
+    torch.save(the_model.state_dict(), path)
+    
