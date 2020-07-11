@@ -220,4 +220,4 @@ def save_model(the_model: DQN, path: Union[None, str] = None) -> None:
         path = os.path.join(current_path, 'saved_files', f'hadouken_{date_str}.pt')
         print(path)
     torch.save(the_model.state_dict(), path)
-    return
+    
